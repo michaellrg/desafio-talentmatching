@@ -7,6 +7,7 @@ package com.br.talentmatching.desafio.controller;
 
 import com.br.talentmatching.desafio.model.Imovel;
 import com.br.talentmatching.desafio.service.ImovelService;
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -51,6 +52,10 @@ public class ImovelController {
       
      return imovelService.cadastrar(imovel);
  }
-
+ 
+@RequestMapping(value="/lista",method = RequestMethod.GET)
+public Collection<Imovel> lista(){
+return imovelService.buscarTodos();
+}
  
 }
